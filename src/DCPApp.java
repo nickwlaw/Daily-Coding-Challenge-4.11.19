@@ -12,10 +12,31 @@ public class DCPApp {
 		System.out.println(test1(falseTest2));
 	}
 	
+	// this test will assume this string does not have any characters that are not ()[]{};
 	private static boolean test1(String test) {
+		boolean isValid = false;
+		for (int i = 0; i < test.length(); i++) {
+			if (String.valueOf(test.charAt(i)).equals("("))
+				isValid = par(test.substring(i));
+			if (String.valueOf(test.charAt(i)).equals("["))
+				isValid = squ(test.substring(i));
+			if (String.valueOf(test.charAt(i)).equals("{"))
+				isValid = cur(test.substring(i));
+			i++;
+		}
+		return isValid;
 		
 	}
 
+	private static boolean par(String parTest) {
+		return false;
+	}
+	private static boolean squ(String squTest) {
+		return true;
+	}
+	private static boolean cur(String curTest) {
+		return true;
+	}
 }
 
 /*
